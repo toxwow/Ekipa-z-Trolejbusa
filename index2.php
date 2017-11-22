@@ -25,7 +25,7 @@ include("simple_html_dom.php");
 $id =  $_POST["id_product"];//"39684857"; // Wczytywanie numeru id produktu
 $html = file_get_html('https://www.ceneo.pl/'.$id.'#tab=reviews'); // Parse zawartosci strony
 $opinie = array();
-
+$kategorie = array();
 foreach($html->find('h1.product-name') as $a); // Parse tytuly produktu
 foreach($html->find('span[class="prod-review"]') as $number_review){
 	$liczba_opini = $number_review->find('span[itemprop="reviewCount"]',0)->innertext; // Parse liczba opini
