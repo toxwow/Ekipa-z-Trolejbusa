@@ -26,6 +26,9 @@ $id =  $_POST["id_product"];//"39684857"; // Wczytywanie numeru id produktu
 $html = file_get_html('https://www.ceneo.pl/'.$id.'#tab=reviews'); // Parse zawartosci strony
 $opinie = array();
 $kategorie = array();
+foreach($html->find('span.breadcrumb') as $all_cat){
+	$kategorie[] = $all_cat->find('span[itemprop="title"]',0)->innertext;
+}
 foreach($html->find('h1.product-name') as $a); // Parse tytuly produktu
 foreach($html->find('span[class="prod-review"]') as $number_review){
 	$liczba_opini = $number_review->find('span[itemprop="reviewCount"]',0)->innertext; // Parse liczba opini
@@ -77,6 +80,7 @@ foreach($strona[$numer_strony]->find('div[class="show-review-content content-wid
     	// Parse autora i przypisanie jej do tabeli opinie
 	}
 }
+echo end($kategorie);
 echo $a; // Wyswietlenie tytulu
 echo "<h1> Liczba opini: $liczba_opini </h1>";
 $liczba_opini_petla = $liczba_opini - 10;
