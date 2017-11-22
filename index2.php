@@ -1,11 +1,4 @@
-<!-- Zadaniem jest parse opini danego produktu ze strony ceneo.
-
-Poblem jest taki, że wyciagając informacje z 
-p class=product-review-body
-wyciągają się równiez komentarze do każdej z opini.
-(bo p class =product-review-body odpowiada też komentarzom)  
-
-Jak wyciągnąc wszystkie p class=jak wyzej oprocz tych które znajdą się w ol class=class="product-review-comments"
+<!--
 
 Link do bilbioteki http://simplehtmldom.sourceforge.net/
 -->
