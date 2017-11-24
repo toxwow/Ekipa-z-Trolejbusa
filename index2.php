@@ -134,7 +134,7 @@ foreach($strona[$numer_strony]->find('header[class="review-box-header user-box-c
 }
 
 foreach($html->find('div[class="show-review-content content-wide"]') as $pros) {
-    $zalety[] = $pros->find('div[class="product-review-pros-cons"] div.pros-cell ul',0)->plaintext; 
+    $zalety[] = $pros->find('div[class="product-review-pros-cons"] div.pros-cell ul',0)->innertext; 
     // Parse zalet i przypisanie jej do tabeli zalety
 }
 for($numer_strony=2; $numer_strony<=$liczba_stron; $numer_strony++){
@@ -142,13 +142,13 @@ $strona[$numer_strony] = file_get_html('https://www.ceneo.pl/'.$id.'/opinie-'.$n
 
 foreach($strona[$numer_strony]->find('div[class="show-review-content content-wide"]') as $pros1) 
 	{
-    	$zalety1[] = $pros1->find('div[class="product-review-pros-cons"] div.pros-cell ul',0)->plaintext; 
+    	$zalety1[] = $pros1->find('div[class="product-review-pros-cons"] div.pros-cell ul',0)->innertext; 
     	// Parse zalet i przypisanie jej do tabeli zalety1
 	}
 }
 
 foreach($html->find('div[class="show-review-content content-wide"]') as $cons) {
-    $wady[] = $cons->find('div[class="product-review-pros-cons"] div.cons-cell ul',0)->plaintext; 
+    $wady[] = $cons->find('div[class="product-review-pros-cons"] div.cons-cell ul',0)->innertext; 
     // Parse wad i przypisanie jej do tabeli wady
 }
 for($numer_strony=2; $numer_strony<=$liczba_stron; $numer_strony++){
@@ -156,7 +156,7 @@ $strona[$numer_strony] = file_get_html('https://www.ceneo.pl/'.$id.'/opinie-'.$n
 
 foreach($strona[$numer_strony]->find('div[class="show-review-content content-wide"]') as $cons1) 
 	{
-    	$wady1[] = $cons1->find('div[class="product-review-pros-cons"] div.cons-cell ul',0)->plaintext;
+    	$wady1[] = $cons1->find('div[class="product-review-pros-cons"] div.cons-cell ul',0)->innertext;
     	// $wady1[] = str_replace("<br>", "<li>", $wady1); 
     	// Parse wad i przypisanie jej do tabeli wady1
 	}
@@ -172,15 +172,15 @@ echo '<tr> <th>Nr</th> <th>Autor</th><th>Rekomendacja</th><th>Data</th><th>Liczb
 $liczba_opini_petla = $liczba_opini - 10;
 if($liczba_opini<=10){
 	for($i=0; $i<$liczba_opini; $i++){
-	echo "<tr><td>" .($i+1)."</td> <td>$autor[$i]</td><td>$recommended[$i]</td><td>$time[$i]</td><td>$gwiazdki[$i]</td> <td>$opinie[$i]</td><td>$zalety[$i]</td><td>$wady[$i]</td></tr>";
+	echo "<tr><td>" .($i+1)."</td> <td>$autor[$i]</td><td>$recommended[$i]</td><td>$time[$i]</td><td>$gwiazdki[$i]</td> <td>$opinie[$i]</td><td style='width:250px'>$zalety[$i]</td><td style='width:250px'>$wady[$i]</td></tr>";
 }
 }
 else{
 	for($i=0; $i<10; $i++){
-	echo "<tr><td>" .($i+1)."</td> <td>$autor[$i]</td><td>$recommended[$i]</td><td>$time[$i]</td><td>$gwiazdki[$i]</td> <td>$opinie[$i]</td><td>$zalety[$i]</td><td>$wady[$i]</td></tr>";
+	echo "<tr><td>" .($i+1)."</td> <td>$autor[$i]</td><td>$recommended[$i]</td><td>$time[$i]</td><td>$gwiazdki[$i]</td> <td>$opinie[$i]</td><td style='width:250px'>$zalety[$i]</td><td style='width:250px'>$wady[$i]</td></tr>";
 }
 	for($i=0; $i<$liczba_opini_petla; $i++)
-	echo "<tr><td>" .($i+11)."</td> <td>$autor1[$i]</td><td>$recommended1[$i]</td><td>$time1[$i]</td><td>$gwiazdki1[$i]</td> <td>$opinie1[$i]</td><td>$zalety1[$i]</td><td>$wady1[$i]</td></tr>";
+	echo "<tr><td>" .($i+11)."</td> <td>$autor1[$i]</td><td>$recommended1[$i]</td><td>$time1[$i]</td><td>$gwiazdki1[$i]</td> <td>$opinie1[$i]</td><td style='width:250px'>$zalety1[$i]</td><td style='width:250px'>$wady1[$i]</td></tr>";
 }
 echo '</table>';
 
