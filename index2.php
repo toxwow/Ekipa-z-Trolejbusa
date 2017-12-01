@@ -85,7 +85,7 @@ box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 	<div class="col-sm-12">
 		<form action="index2.php?show.php" method="post">
     		<div class="form-group">
-      			<input type="text" class="form-control" id="id_product" placeholder="Podaj id produktu" name="id_product">
+      			<input type="text" class="form-control" id="id_product" pattern="\d*" placeholder="Podaj id produktu" name="id_product" required>
     		</div>
     		<center>
     		<button type="submit" class="btn btn-secondary disabled">E</button>
