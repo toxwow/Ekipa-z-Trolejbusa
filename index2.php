@@ -20,7 +20,7 @@ Link do bilbioteki http://simplehtmldom.sourceforge.net/
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 105%;
 }
 
 td, th {
