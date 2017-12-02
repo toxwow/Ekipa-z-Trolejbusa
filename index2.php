@@ -97,7 +97,6 @@ box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
 	</div>
 
-
 <?php 
 $book="./show.php";
 include_once($book);
