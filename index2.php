@@ -52,7 +52,7 @@ body{
 	background-image: "1.jpg";
     opacity:0.95;
 }
-div.el1o{
+div.elo{
 width:800px;
 max-width: 400px;
 width: 100%;
